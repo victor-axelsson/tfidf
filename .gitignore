@@ -1,3 +1,6 @@
 venv
 notes.txt
 *.bin
+*.csv
+.DS_Store
+.vscode/*

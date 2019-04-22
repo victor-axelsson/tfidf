@@ -8,7 +8,7 @@ import math
 
 stemmer = PorterStemmer()
 
-DATASET_PATH = '/home/randomhash/datasets/lyrics/songdata.csv'
+DATASET_PATH = '/Users/victoraxelsson/datasets/songdata.csv'
 DELIMITER = ','
 QUOTE_CHAR='"'
 FIELDS = {
@@ -60,10 +60,7 @@ def read_dataset():
         documents = load_pickle('documents.bin')
         document_frequency = load_pickle('document_frequency.bin')
 
-    print(documents[0]['tfidf'])
-
 def build_document(raw):
-
     document = {
         'words': {},
         'len': len(raw),
@@ -112,14 +109,11 @@ def add_document_frequency(document, document_frequency):
 
     return document_frequency
 
-
 def calc_idf(document_frequency, n):
     document_frequency['idf'] = {}
     for word in document_frequency['words']:
         document_frequency['idf'][word] = math.log(n / document_frequency['words'][word])
 
-
-    print(document_frequency)
     return document_frequency
 
 def calc_tdidf(documents, document_frequency):
